@@ -9,6 +9,7 @@ namespace FreesqlDemo.API.DbModels
     public class AppDbContext : DbContext
     {
         public DbSet<User> User { get; set; }
+        public DbSet<Book> Book { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder options)
         //{
@@ -17,12 +18,15 @@ namespace FreesqlDemo.API.DbModels
 
         protected override void OnModelCreating(ICodeFirst codefirst)
         {
-            codefirst.Entity<User>(eb =>
+            codefirst.Entity<Book>(b =>
             {
-                eb.ToTable("tb_user");
+                b.HasOne(a => a.User).HasForeignKey(a => a.UserId).WithMany(a => a.Books);
+
+                b.HasIndex(a => a.UserId).HasName("Book_Idx_UserId_001");
+
             });
 
-            codefirst.SyncStructure<User>();
+            //codefirst.SyncStructure<User>();
         }
     }
 }

@@ -24,17 +24,11 @@ namespace FreesqlDemo.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            string path = Path.Combine(AppContext.BaseDirectory, "document2.db");
             Fsql = new FreeSql.FreeSqlBuilder()
-               .UseConnectionString(FreeSql.DataType.Sqlite, $@"Data Source={path};Pooling=true;Max Pool Size=10")
-               //.UseConnectionString(FreeSql.DataType.SqlServer, "Data Source=.;Integrated Security=True;Initial Catalog=freesqlTest;Pooling=true;Max Pool Size=10")
-               //.UseConnectionString(DataType.MySql, "Data Source=192.168.164.10;Port=33061;User ID=root;Password=123456;Initial Catalog=cccddd;Charset=utf8;SslMode=none;Max pool size=5")
-               //.UseSlave("Data Source=192.168.164.10;Port=33062;User ID=root;Password=123456;Initial Catalog=cccddd;Charset=utf8;SslMode=none;Max pool size=5")
-               //.UseConnectionString(FreeSql.DataType.Oracle, "user id=user1;password=123456;data source=//127.0.0.1:1521/XE;Pooling=true;Max Pool Size=10")
-               //.UseSyncStructureToUpper(true)
+               //.UseConnectionString(FreeSql.DataType.MySql, "Data Source=13.75.68.96; Port=8806;User ID=root;Password=whj1993945..; Initial Catalog=FirstFreesqlDB;Charset=utf8; SslMode=none;Min pool size=1")
+               .UseConnectionString(FreeSql.DataType.PostgreSQL, "Host=13.75.68.96;Port=8432;Username=postgres;Password=whj1993945..; Database=FirstFreesqlDB;Pooling=true;Minimum Pool Size=1")
+
                .UseAutoSyncStructure(true)
-               .UseLazyLoading(true)
-               .UseNoneCommandParameter(true)
                .UseMonitorCommand(cmd => { }, (cmd, log) => Trace.WriteLine(log))
                .Build();
 

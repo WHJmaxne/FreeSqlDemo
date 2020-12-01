@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[2.0.101, )"
             },
+            "FreeSql.Provider.MySql": {
+              "target": "Package",
+              "version": "[2.0.101, )"
+            },
+            "FreeSql.Provider.PostgreSQL": {
+              "target": "Package",
+              "version": "[2.0.101, )"
+            },
             "FreeSql.Provider.Sqlite": {
               "target": "Package",
               "version": "[2.0.101, )"

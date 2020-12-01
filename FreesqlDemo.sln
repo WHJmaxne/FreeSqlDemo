@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreesqlDemo.API", "FreesqlDemo.API\FreesqlDemo.API.csproj", "{D4E5AAF5-462E-4534-85CC-0A124FC77F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreesqlDemo.API", "FreesqlDemo.API\FreesqlDemo.API.csproj", "{D4E5AAF5-462E-4534-85CC-0A124FC77F55}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "freesql-demo-webapp", "freesql-demo-webapp\", "{9520664C-5EC4-44FD-BA7E-100FD0467DC5}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -23,6 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "freesql-demo-webapp", "free
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "4081"
+		SlnRelativePath = "freesql-demo-webapp\"
 	EndProjectSection
 EndProject
 Global
