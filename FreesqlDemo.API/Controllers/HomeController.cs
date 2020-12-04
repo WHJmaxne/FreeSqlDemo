@@ -20,26 +20,26 @@ namespace FreesqlDemo.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            _context.Add(new User
-            {
-                Age = 18,
-                Name = "张三",
-                Books = new List<Book>
-                {
-                    new Book{
-                        Auther = "李四",
-                        Name = "Kali从入门到放弃",
-                        UserId = 1
-                    },
-                    new Book{
-                        Auther = "王五",
-                        Name = "C#从入门到放弃",
-                        UserId = 1
-                    }
-                }
-            });
+            //_context.Add(new User
+            //{
+            //    Age = 18,
+            //    Name = "张三",
+            //    Books = new List<Book>
+            //    {
+            //        new Book{
+            //            Auther = "李四",
+            //            Name = "Kali从入门到放弃",
+            //            UserId = 1
+            //        },
+            //        new Book{
+            //            Auther = "王五",
+            //            Name = "C#从入门到放弃",
+            //            UserId = 1
+            //        }
+            //    }
+            //});
 
-            _context.SaveChanges();
+            //_context.SaveChanges();
 
             var user = this._context.User.Select.IncludeMany(d => d.Books, then => then.Where(sub => sub.Id == 1)).ToList().Select(d => new
             {
@@ -54,7 +54,8 @@ namespace FreesqlDemo.API.Controllers
                     b.UserId
                 })
             }).ToList();
-            return new JsonResult(user);
+            var result = new { state = 1, data = user };
+            return new JsonResult(result);
         }
     }
 }
